@@ -66,10 +66,15 @@ Aplicación de compras para SALUDCARIBE con backend en Java Spring Boot y fronte
 
 ### Frontend en Vercel
 
-1. Sube el código a un repositorio Git (GitHub, GitLab, etc.).
-2. Conecta el repo a Vercel.
-3. Configura el directorio de build como `frontend`.
-4. Despliega. La app se servirá desde Vercel.
+1. Ve a [Vercel.com](https://vercel.com), conecta tu cuenta de GitHub.
+2. Importa el repo `SALUDCARIBE-SOPPPING`.
+3. En la configuración del proyecto:
+   - **Root Directory**: Establece como `frontend` (esto es crucial para que Vercel encuentre el package.json y haga el build correctamente).
+   - **Build Command**: `npm run build` (o `bun run build`).
+   - **Output Directory**: `dist` (por defecto).
+4. Despliega.
+
+Si ya importaste el proyecto y falló el build, ve a Settings > General > Root Directory y cámbialo a `frontend`, luego redeploy.
 
 ### Backend
 
