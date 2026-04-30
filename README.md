@@ -69,16 +69,16 @@ Aplicación de compras para SALUDCARIBE con backend en Java Spring Boot y fronte
 1. Ve a [Vercel.com](https://vercel.com), conecta tu cuenta de GitHub.
 2. Importa el repo `SALUDCARIBE-SOPPPING`.
 3. En la configuración del proyecto:
-   - **Root Directory**: Establece como `frontend`.
-   - **Build Command**: `npm run build` (o `bun run build`).
+   - **Root Directory**: Establece como `frontend` (IMPORTANTE: esto hace que Vercel busque el package.json en la carpeta frontend).
+   - **Build Command**: deja el valor por defecto (`npm run build`).
    - **Output Directory**: deja el valor por defecto.
-4. Asegúrate de que la configuración de Vercel lea los archivos en `frontend/vercel.json`.
-5. Agrega las variables de entorno en Vercel si no están definidas:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_PUBLISHABLE_KEY`
-   - `VITE_SUPABASE_PROJECT_ID`
+4. Asegúrate de que Vercel lea el archivo `frontend/vercel.json` para la configuración de rutas SSR.
+5. Agrega las variables de entorno en Vercel (Settings > Environment Variables):
+   - `VITE_SUPABASE_URL`: `https://laujgjzkusfoavpzielz.supabase.co`
+   - `VITE_SUPABASE_PUBLISHABLE_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhdWpnanprdXNmb2F2cHppZWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczOTc2NTcsImV4cCI6MjA5Mjk3MzY1N30.Ip86KmLwlo_X_KhjkRo1RUAL_p1U7XhkSm2mhi82bzg`
+   - `VITE_SUPABASE_PROJECT_ID`: `laujgjzkusfoavpzielz`
 
-Si el sitio muestra 404 después del deploy, fuerza un nuevo deploy en Vercel después de aplicar estos ajustes.
+Si el sitio no carga después del deploy, revisa los logs de build en Vercel y asegúrate de que el Root Directory esté configurado correctamente.
 
 ### Backend
 
