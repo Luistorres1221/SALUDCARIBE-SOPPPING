@@ -10,7 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Plus, Edit, Trash2, Shield } from "lucide-react";
 import { toast } from "sonner";
-import { AppRole, ROLE_LABELS } from "@/lib/auth-context";
+import type { AppRole } from "@/lib/auth-context";
+import { ROLE_LABELS } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/roles")({
   component: AdminRoles,
