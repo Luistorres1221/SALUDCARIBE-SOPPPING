@@ -17,7 +17,7 @@ import {
   adminUpdatePassword,
   adminDeleteUser,
   adminListEmails,
-} from "@/server/admin-users.functions";
+} from "@/lib/admin.server";
 
 export const Route = createFileRoute("/admin/usuarios")({
   component: AdminUsers,
