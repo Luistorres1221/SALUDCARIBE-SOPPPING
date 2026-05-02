@@ -4,8 +4,9 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "routes": [
-    {
-      "src": "/(.*)",
+    {      "handle": "filesystem"
+    },
+    {      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
