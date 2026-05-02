@@ -3,13 +3,15 @@ import path from 'path'
 
 export default defineConfig({
   cloudflare: false,
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
     },
-  },
-  build: {
-    outDir: 'dist',
+    build: {
+      outDir: 'dist',
+    },
   },
 })
 
