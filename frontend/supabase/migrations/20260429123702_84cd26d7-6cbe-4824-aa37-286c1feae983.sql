@@ -1,1 +1,0 @@
-REVOKE EXECUTE ON FUNCTION public.adjust_stock_on_delivery() FROM PUBLIC, anon, authenticated;
