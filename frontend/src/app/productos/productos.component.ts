@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
+import { runtimeConfig } from '../services/runtime-config';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -23,36 +24,29 @@ interface Product {
     <div class="container mx-auto px-4 py-8">
       <h1 class="text-3xl font-bold text-center mb-8">Productos</h1>
 
-      @if (loading) {
-        <div class="text-center">Cargando productos...</div>
-      } @else if (error) {
-        <div class="text-center text-red-600">{{ error }}</div>
-      } @else {
-        <mat-grid-list cols="4" rowHeight="400px" class="grid-container">
-          @for (product of products; track product.id) {
-            <mat-grid-tile>
-              <mat-card class="product-card">
-                <mat-card-header>
-                  <mat-card-title>{{ product.name }}</mat-card-title>
-                  <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
-                </mat-card-header>
-                @if (product.image) {
-                  <img mat-card-image [src]="product.image" [alt]="product.name" class="product-image">
-                }
-                <mat-card-content>
-                  <p>{{ product.description }}</p>
-                  <p class="price">{{ product.price | currency:'COP':'symbol':'1.0-0' }}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-raised-button color="primary" (click)="addToCart(product)">
-                    Agregar al Carrito
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-            </mat-grid-tile>
-          }
-        </mat-grid-list>
-      }
+      <div *ngIf="loading" class="text-center">Cargando productos...</div>
+      <div *ngIf="!loading && error" class="text-center text-red-600">{{ error }}</div>
+
+      <mat-grid-list *ngIf="!loading && !error" cols="4" rowHeight="400px" class="grid-container">
+        <mat-grid-tile *ngFor="let product of products">
+          <mat-card class="product-card">
+            <mat-card-header>
+              <mat-card-title>{{ product.name }}</mat-card-title>
+              <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+            </mat-card-header>
+            <img *ngIf="product.image" mat-card-image [src]="product.image" [alt]="product.name" class="product-image">
+            <mat-card-content>
+              <p>{{ product.description }}</p>
+              <p class="price">{{ product.price | currency:'COP':'symbol':'1.0-0' }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" (click)="addToCart(product)">
+                Agregar al Carrito
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
     </div>
   `,
   styles: [`
@@ -88,7 +82,7 @@ export class ProductosComponent implements OnInit {
   }
 
   loadProducts() {
-    this.http.get<Product[]>('http://localhost:8080/api/products')
+    this.http.get<Product[]>(runtimeConfig.apiBaseUrl + '/products')
       .subscribe({
         next: (data) => {
           this.products = data;

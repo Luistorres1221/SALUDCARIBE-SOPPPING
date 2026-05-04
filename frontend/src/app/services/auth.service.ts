@@ -1,6 +1,7 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { SupabaseClient, createClient } from '@supabase/supabase-js';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { runtimeConfig } from './runtime-config';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class AuthService {
 
   constructor() {
     this.supabase = createClient(
-      'YOUR_SUPABASE_URL', // Replace with actual URL
-      'YOUR_SUPABASE_ANON_KEY' // Replace with actual key
+      runtimeConfig.supabaseUrl,
+      runtimeConfig.supabaseAnonKey
     );
 
     // Check for existing session

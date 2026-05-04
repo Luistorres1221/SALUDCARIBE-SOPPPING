@@ -39,9 +39,7 @@ import { AuthService } from '../services/auth.service';
                   <mat-label>Contraseña</mat-label>
                   <input matInput type="password" [(ngModel)]="signInPassword" name="signInPassword" required>
                 </mat-form-field>
-                @if (signInError) {
-                  <p class="text-red-600 mb-4">{{ signInError }}</p>
-                }
+                <p *ngIf="signInError" class="text-red-600 mb-4">{{ signInError }}</p>
                 <button mat-raised-button color="primary" type="submit" class="w-full" [disabled]="signInLoading">
                   {{ signInLoading ? 'Cargando...' : 'Iniciar Sesión' }}
                 </button>
@@ -61,9 +59,7 @@ import { AuthService } from '../services/auth.service';
                   <mat-label>Confirmar Contraseña</mat-label>
                   <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
                 </mat-form-field>
-                @if (signUpError) {
-                  <p class="text-red-600 mb-4">{{ signUpError }}</p>
-                }
+                <p *ngIf="signUpError" class="text-red-600 mb-4">{{ signUpError }}</p>
                 <button mat-raised-button color="primary" type="submit" class="w-full" [disabled]="signUpLoading">
                   {{ signUpLoading ? 'Cargando...' : 'Registrarse' }}
                 </button>
