@@ -28,14 +28,14 @@ Aplicación de compras para SALUDCARIBE con backend en Java Spring Boot y fronte
    mvn spring-boot:run
    ```
 
-   El backend estará disponible en `http://localhost:8080`.
+   El backend estará disponible en `http://localhost:8081`.
 
    - API de categorías: `GET/POST/PUT/DELETE /api/categories`
    - API de productos: `GET/POST/PUT/DELETE /api/products`
    - API de usuarios: `GET/POST/PUT/DELETE /api/users`
    - API de pedidos: `GET/POST/PUT/DELETE /api/orders`
 
-   Base de datos H2: Accede a `http://localhost:8080/h2-console` con JDBC URL `jdbc:h2:mem:testdb`, usuario `sa`, contraseña `password`.
+   Base de datos H2: Accede a `http://localhost:8081/h2-console` con JDBC URL `jdbc:h2:mem:testdb`, usuario `sa`, contraseña `password`.
 
 ### Frontend
 

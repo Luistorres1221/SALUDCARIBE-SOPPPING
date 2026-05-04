@@ -25,7 +25,7 @@ docker-compose up -d
 
 Esto iniciará:
 - **MySQL**: Puerto 3306
-- **Backend (Spring Boot)**: Puerto 8080 → http://localhost:8080/api
+- **Backend (Spring Boot)**: Puerto 8081 → http://localhost:8081/api
 - **Frontend (Vite/React)**: Puerto 3000 → http://localhost:3000
 
 ### 3. Verificar que los servicios estén corriendo
@@ -115,7 +115,7 @@ mvn clean install
 # Correr en desarrollo
 mvn spring-boot:run
 
-# Acceso a H2 Console: http://localhost:8080/h2-console
+# Acceso a H2 Console: http://localhost:8081/h2-console
 ```
 
 ### Frontend
@@ -170,7 +170,7 @@ SPRING_DATASOURCE_PASSWORD=salud_password
 
 ### Frontend (Docker)
 ```
-VITE_API_URL=http://localhost:8080/api
+VITE_API_URL=http://localhost:8081/api
 ```
 
 ---
@@ -191,7 +191,7 @@ VITE_API_URL=http://localhost:8080/api
 ```bash
 # Linux/Mac
 lsof -i :3000  # Frontend
-lsof -i :8080  # Backend
+lsof -i :8081  # Backend
 lsof -i :3306  # MySQL
 
 # Windows

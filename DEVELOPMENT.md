@@ -5,7 +5,7 @@
 ```
 Frontend (React/TanStack)     Backend (Spring Boot)     Database (MySQL)
     ↓                              ↓                          ↓
-Port 3000                      Port 8080/api               Port 3306
+Port 3000                      Port 8081/api               Port 3306
 Vercel (Producción)        Docker/XAMPP (Producción)   XAMPP/Docker
 ```
 
@@ -57,7 +57,7 @@ docker-compose logs -f
 
 # Acceso
 - Frontend: http://localhost:3000
-- Backend: http://localhost:8080/api
+- Backend: http://localhost:8081/api
 - MySQL: localhost:3306 (salud_user / salud_password)
 ```
 
@@ -74,7 +74,7 @@ cd backend
 mvn clean install
 mvn spring-boot:run
 
-# El backend estará en http://localhost:8080/api
+# El backend estará en http://localhost:8081/api
 ```
 
 #### Frontend
